@@ -138,7 +138,7 @@ def batch_gradient_descent(X, y, theta, alpha, iterations):
 ```python
     def rmsprop_step(learning_rate, model, data, epsilon, running_avg, gradient_sq):
         gradient = compute_gradient(model, data)
-        running_avg = running_avg * 0.9 + (1 - 0.9) * gradient
+        running_avg = running_avg * 0.9 + (1 - 0.9) * gradient ** 2
         model.parameters -= learning_rate * gradient / np.sqrt(running_avg + epsilon)
         return running_avg
 ```
